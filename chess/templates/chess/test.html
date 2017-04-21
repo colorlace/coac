@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Board</title>
+  {% load static %}
+  <script type="text/javascript" src="{% static 'chess/js/chessboard.js' %}"></script>
+  <script type="text/javascript" src="{% static 'chess/js/logic.js' %}"></script>
+  <link rel="stylesheet" type="text/css" href="{% static "chess/css/chessboard.css" %}">
+</head>
+<body>
+
+  <h1>Chess Board</h1>
+  <div id="board" style="width: 400px"></div>
+
+</body>
+</html>
+
+<script type="text/javascript">
+$(document).ready(function() {
+  var board_state = "{{ current_board_state }}"
+  var opts = {
+    position: board_state,
+    draggable: true,
+  };
+  var board = ChessBoard('board', opts);
+});
+</script>
