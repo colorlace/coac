@@ -5,7 +5,7 @@ import re
 def emptify(row_string):
     """
      IN: a string from 1 row in a FEN string w/empties like: 'pp5p'
-     OUT: a list of chars.  adding 0s at empties like: 'pp00000p'   
+     OUT: a list of chars.  adding 0s at empties like: 'pp00000p'
     """
     row_list = list(row_string)
     emptified_row = []
@@ -15,11 +15,11 @@ def emptify(row_string):
         else: #we have a piece in this position
             emptified_row.append(sqr)
     return emptified_row
-    
+
 def convertBoardTo2d(fen_string):
     """
     IN: a string of the current board state in fen mode
-    OUT: a list of 8 lists of 8 chars 
+    OUT: a list of 8 lists of 8 chars
     """
     fen_list = fen_string.split("/")
     fen_2d = []
@@ -42,7 +42,7 @@ def parseMove(move):
     def fileToCol(fle):
         return ord(fle)-97
     return [ rankToRow(rankfile[1]), fileToCol(rankfile[0]), rankToRow(rankfile[3]), fileToCol(rankfile[2]) ]
-    
+
 ####MODELS###############
 class BoardState(models.Model):
     board_state = models.CharField(max_length=70)
@@ -57,21 +57,20 @@ class BoardState(models.Model):
 
     @classmethod
     def newMove(cls, move):
-        "takes a string like a2-a4 and updates the BoardState model"
+        #takes a string like a2-a4 and updates the BoardState model
         if move == "newgame":
             cls.newGame()
         elif move == "castle":
             cls.castle()
-        else: 
+        else:
             cls.makeMove(move)
-            
+
     @classmethod
     def makeMove(cls, move):
         fen_string = cls.objects.order_by('id').last().board_state
         positions_2d = convertBoardTo2d(fen_string)
         print(positions_2d)
         print(parseMove(move))
-    
+
     def __str__(self):
         return self.board_state
-        
