@@ -1,5 +1,6 @@
 # coac
-Castle on a Cloud. chess for two physical boards. Powered by Django.
+Castle on a Cloud. play chess with two physical boards with placement sensors and a wifi connection.
+Powered by Django.
 
 # Testing on your computer  
 This is a Django site.
@@ -12,9 +13,9 @@ To test this project we need to serve it up locally on our own machine. Simply t
 
 So what does `manage.py` do? This script does two things.  
   1.  sets the `DJANGO_SETTINGS_MODULE` environment variable to point to our project settings as spec'd out in `settings.py`  
-  2.  runs the function `execute_from_command_line` from django.core.managemet which does some crazy magic and serves up the site locally.
+  2.  runs the function `execute_from_command_line` from django.core.managemet which does some impressive magic and serves up the site locally.
 
-(TODO: figure out some basics about `execute_from_command_line`)
+(TODO: replace "impressive magic" with some basics about `execute_from_command_line`)
 
 
 ###   servin' it up
