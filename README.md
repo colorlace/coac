@@ -8,7 +8,8 @@ To test this project we need to serve it up locally on our own machine. Simply t
 `python manage.py runserver`
 
 
-```You have to make sure that you have all of the appropriate python packages installed. These should be in `requirements.txt`
+```
+You have to make sure that you have all of the appropriate python packages installed. These should be in `requirements.txt`
 ```
 
 So what does `manage.py` do? This script does two things.  
